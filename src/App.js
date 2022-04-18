@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import { useState } from "react";
 
 const ToDoList = () => {
@@ -9,6 +9,7 @@ const ToDoList = () => {
         let itemList = [...toDo]
         itemList.push(inputText)
         setToDo(itemList)
+        setInputText("")
     }
     
     const removeHandler = (index) => {
@@ -22,10 +23,10 @@ const ToDoList = () => {
     }
 
     return (
-        <div>
+        <div className='pageContainer'>
             <h1> My to do list </h1>
             <input onChange={inputHandler}/>
-            <button onClick={addHandler}>add</button>
+            <button onClick={addHandler}>Add</button>
             <h2>{inputText}</h2>
             {toDo.map((number, index) => {
                 return <h2 key={index} onClick={() => removeHandler(index)}>{number}</h2>
